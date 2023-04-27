@@ -8,9 +8,38 @@ public class Vectores {
         // Leer 10 valores en consola
         /// Definicion de un vector
         //vectorOnlyPositives();
-        vectorAddValues();
+        //vectorAddValues();
+        //addTwoVectors();
+        intersectionVectors();
     }
 
+    private static void intersectionVectors(){
+        int[] vectorA = fillVector(MAX_SIZE_VECTOR);
+        int[] vectorB = fillVector(MAX_SIZE_VECTOR);
+
+        printVector(vectorA);
+        printVector(vectorB);
+
+        for (int position = 0; position < MAX_SIZE_VECTOR; position++){
+            if(vectorA[position] == vectorB[position]){
+                System.out.println("Intersección en la posicion: " + position + ", con el valor: " + vectorA[position]);
+            }
+        }
+    }
+
+    private static void addTwoVectors(){
+        int[] vectorA = fillVector(MAX_SIZE_VECTOR);
+        int[] vectorB = fillVector(MAX_SIZE_VECTOR);
+        int[] vectorC = new int[MAX_SIZE_VECTOR];
+        for (int position = 0; position < MAX_SIZE_VECTOR; position++){
+            vectorC[position] = vectorA[position] + vectorB[position];
+        }
+        printVector(vectorA);
+        printVector(vectorB);
+        printVector(vectorC);
+
+
+    }
     private static void vectorAddValues(){
         int[] vector = new int[MAX_SIZE_VECTOR];
         for (int incremento = 0; incremento < vector.length; incremento++){
@@ -75,5 +104,13 @@ public class Vectores {
             System.out.printf("%d, ", vector[i]);
         }
         System.out.println();
+    }
+
+    private static int[] fillVector(int size){
+        int[] vector = new int[size];
+        for (int incremento = 0; incremento < vector.length; incremento++){
+            vector[incremento] = pedirValores(incremento);
+        }
+        return vector;
     }
 }
